@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class CustomButton : MonoBehaviour
+public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private bool _isRight;
     private PlatformHub platformHub;
@@ -18,8 +19,13 @@ public class CustomButton : MonoBehaviour
             else platformHub.Move(-1);
         }
     }
-    public void OnClick()
-    {
-        isPressed = !isPressed;
+
+    public void OnPointerDown (PointerEventData eventData) {
+        Debug.Log ("down!");
+        isPressed = true;
+    }
+
+    public void OnPointerUp (PointerEventData eventData) {
+        isPressed = false;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,14 +9,22 @@ public class PlatformSpavner : MonoBehaviour
     [SerializeField] private GameObject PlatformPrefab;
 
     private GameObject Player;
+    private int PlatformCount;
+
     void Start()
     {
+        PlatformCount = 5;
         Player = GameObject.FindWithTag("Player");
     }
 
     public void Spawn()
     {
-        Instantiate(PlatformPrefab, new Vector3(0, 0, 0), Quaternion.identity, MovingPlatforms);
+        var obj = Instantiate(PlatformPrefab,
+            new Vector3(0, 0, PlatformCount * GameVaarables.PlatformDelayRange),
+            Quaternion.identity,
+            MovingPlatforms);
+
+        PlatformCount++;
     }
 
     void Update()
