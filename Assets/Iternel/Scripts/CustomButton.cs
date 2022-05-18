@@ -15,8 +15,7 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         if (isPressed)
         {
-            if (_isRight) platformHub.Move(1);
-            else platformHub.Move(-1);
+            UIController.Instance.ButtonPressed (_isRight);
         }
     }
 

@@ -13,7 +13,7 @@ public class PlatformSpavner : MonoBehaviour
 
     void Start()
     {
-        PlatformCount = 5;
+        PlatformCount = 3;
         Player = GameObject.FindWithTag("Player");
     }
 

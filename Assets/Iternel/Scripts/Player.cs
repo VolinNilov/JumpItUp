@@ -6,21 +6,34 @@ public class Player : MonoBehaviour
 {
     private Rigidbody rigitBody;
     [SerializeField] private GameObject MovingPlatforms;
+
     private void Start () {
         rigitBody = GetComponent<Rigidbody> ();
+        rigitBody.isKinematic = true;
+
+        GameControllers.Instance.OnGameStarted += GameStarted;
+        GameControllers.Instance.OnGameEnded += GameEnded;
+    }
+    private void OnDestroy () {
+        GameControllers.Instance.OnGameStarted -= GameStarted;
+        GameControllers.Instance.OnGameEnded -= GameEnded;
     }
     private void OnCollisionEnter (Collision collision) {
         StopAllCoroutines ();
         StartCoroutine (Jump (collision));
     }
-
+    private void Update () {
+        if (transform.position.y < -5)
+        {
+            GameControllers.Instance.GameOver (false);
+        }
+    }
     private IEnumerator Jump (Collision col) {
-        var targetPlatform = MovingPlatforms.GetComponentsInChildren<Platform> ()[1];
         var time = 0f;
         var flyDuration = 1f;
         var startPos = transform.position;
         var finishPos1 = new Vector3 (0, GameVaarables.PlayerMaxJump, col.transform.position.z + GameVaarables.PlatformDelayRange / 2);
-        var finishPos2 = targetPlatform.transform.position;
+        
 
         while (time < flyDuration)
         {
@@ -33,6 +46,8 @@ public class Player : MonoBehaviour
             yield return null;
         }
         time = 0f;
+        var targetPlatform = MovingPlatforms.GetComponentsInChildren<Platform> ()[1];
+        var finishPos2 = targetPlatform.transform.position;
         while (time < flyDuration)
         {
             time += Time.deltaTime;
@@ -43,5 +58,12 @@ public class Player : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private void GameStarted () {
+        rigitBody.isKinematic = false;
+    }
+    private void GameEnded (bool isWin) {
+        rigitBody.isKinematic = true;
     }
 }
