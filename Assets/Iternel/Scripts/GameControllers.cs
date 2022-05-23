@@ -24,6 +24,7 @@ public class GameControllers : MonoBehaviour
     }
     public void NextLevel () {
         GameVaarables.NextLevel ();
+        GameVaarables.GameStarted ();
         RestartLevel ();
     }
     public void StartGame () {

@@ -12,6 +12,12 @@ ScriptsOnlyBuild:
     - UIController
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.TextMeshPro.dll:
+    - TMPro.TMP_FontAsset
+    - TMPro.TMP_Settings
+    - TMPro.TMP_SpriteAsset
+    - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshProUGUI
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -44,6 +50,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
     - Class: 54
       Script: {instanceID: 0}
     - Class: 65
@@ -57,37 +65,47 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1520}
+      Script: {instanceID: 1546}
     - Class: 114
-      Script: {instanceID: 1548}
+      Script: {instanceID: 1574}
     - Class: 114
-      Script: {instanceID: 1796}
+      Script: {instanceID: 1776}
     - Class: 114
-      Script: {instanceID: 2002}
+      Script: {instanceID: 1822}
     - Class: 114
-      Script: {instanceID: 2046}
+      Script: {instanceID: 2028}
     - Class: 114
-      Script: {instanceID: 2336}
+      Script: {instanceID: 2062}
     - Class: 114
-      Script: {instanceID: 2448}
+      Script: {instanceID: 2072}
     - Class: 114
-      Script: {instanceID: 2616}
+      Script: {instanceID: 2362}
     - Class: 114
-      Script: {instanceID: 2798}
+      Script: {instanceID: 2474}
     - Class: 114
-      Script: {instanceID: 2886}
+      Script: {instanceID: 2516}
     - Class: 114
-      Script: {instanceID: 3262}
+      Script: {instanceID: 2538}
     - Class: 114
-      Script: {instanceID: 3704}
+      Script: {instanceID: 2644}
     - Class: 114
-      Script: {instanceID: 3792}
+      Script: {instanceID: 2826}
     - Class: 114
-      Script: {instanceID: 3972}
+      Script: {instanceID: 2914}
     - Class: 114
-      Script: {instanceID: 4184}
+      Script: {instanceID: 3290}
     - Class: 114
-      Script: {instanceID: 20454}
+      Script: {instanceID: 3732}
+    - Class: 114
+      Script: {instanceID: 3820}
+    - Class: 114
+      Script: {instanceID: 3876}
+    - Class: 114
+      Script: {instanceID: 4000}
+    - Class: 114
+      Script: {instanceID: 4146}
+    - Class: 114
+      Script: {instanceID: 4212}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -105,6 +123,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -205,7 +225,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: 61c87f92d59c5ddc6b097770a02a6f75
+      Hash: 09365b1b7287b33c9640fe069a21dab6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Player
@@ -275,6 +295,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: a064ddaf8f981efc803a1fc5f62ef4f0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraScript
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -397,7 +423,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 3158a6e227cd301d884b6e5517c121e7
+      Hash: c64a11ce3ecdd7284befcbf9a7b0f3fe
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIController
@@ -559,7 +585,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: 3fbc7de39abc10405be1745e8ae43583
+      Hash: 1dc5e8f4c31d335f39450e73ecd61a9c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Platform
@@ -587,13 +613,7 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: a064ddaf8f981efc803a1fc5f62ef4f0
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CameraScript
   platform: 13
   scenePathNames:
   - Assets/Iternel/Scenes/Game.unity
-  playerPath: C:/Projects/GitHub/JumpItUp/APK/0.1.apk
+  playerPath: C:/Projects/GitHub/JumpItUp/APK/0.2.apk

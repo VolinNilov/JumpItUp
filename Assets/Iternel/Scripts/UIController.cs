@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject GameLooseOverlay;
     [SerializeField] private GameObject GameWinOverlay;
     [SerializeField] private GameObject MenuOverlay;
+
+    [SerializeField] private Text CountText;
+
+    public void UpdateCount (string count) {
+        CountText.text = count;
+    }
 
     private void Start () {
         GameControllers.Instance.OnGameEnded += GameOver;

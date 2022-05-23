@@ -17,13 +17,13 @@ public class PlatformSpavner : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
     }
 
-    public void Spawn()
+    public void Spawn(bool isEnd = false)
     {
         var obj = Instantiate(PlatformPrefab,
             new Vector3(0, 0, PlatformCount * GameVaarables.PlatformDelayRange),
             Quaternion.identity,
             MovingPlatforms);
-
+        if (isEnd) obj.GetComponent<Platform> ().SetFinish ();
         PlatformCount++;
     }
 

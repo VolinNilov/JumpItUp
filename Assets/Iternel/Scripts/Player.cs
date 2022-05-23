@@ -6,7 +6,10 @@ public class Player : MonoBehaviour
 {
     private Rigidbody rigitBody;
     [SerializeField] private GameObject MovingPlatforms;
-
+    [SerializeField] GameObject _uiController;
+    private void Awake () {
+        GameVaarables.GetPlatformCount ();
+    }
     private void Start () {
         rigitBody = GetComponent<Rigidbody> ();
         rigitBody.isKinematic = true;
@@ -19,6 +22,13 @@ public class Player : MonoBehaviour
         GameControllers.Instance.OnGameEnded -= GameEnded;
     }
     private void OnCollisionEnter (Collision collision) {
+        if (collision.gameObject.tag == "Platform")
+        {
+            var coins = collision.gameObject.GetComponent<Platform> ().GetCoinsCount (GameVaarables.CurrentCoins);
+            GameVaarables.UpdateCoins (coins);
+            _uiController.GetComponent<UIController> ().UpdateCount (coins.ToString ());
+        }
+
         StopAllCoroutines ();
         StartCoroutine (Jump (collision));
     }
@@ -46,17 +56,22 @@ public class Player : MonoBehaviour
             yield return null;
         }
         time = 0f;
-        var targetPlatform = MovingPlatforms.GetComponentsInChildren<Platform> ()[1];
-        var finishPos2 = targetPlatform.transform.position;
-        while (time < flyDuration)
-        {
-            time += Time.deltaTime;
-            transform.position = Vector3.Lerp (
-                finishPos1,
-                finishPos2,
-                time / flyDuration);
 
-            yield return null;
+        var tmp = MovingPlatforms.GetComponentsInChildren<Platform> ().Length;
+        if (tmp >= 1)
+        {
+            var targetPlatform = MovingPlatforms.GetComponentsInChildren<Platform> ()[1];
+            var finishPos2 = targetPlatform.transform.position;
+            while (time < flyDuration)
+            {
+                time += Time.deltaTime;
+                transform.position = Vector3.Lerp (
+                    finishPos1,
+                    finishPos2,
+                    time / flyDuration);
+
+                yield return null;
+            }
         }
     }
 
